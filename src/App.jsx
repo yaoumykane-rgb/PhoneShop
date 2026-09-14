@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 
@@ -12,7 +12,7 @@ const Placeholder = ({ title }) => (
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Layout>
         <Routes>
           {/* Route principale */}
@@ -28,7 +28,7 @@ function App() {
           <Route path="/guide" element={<Placeholder title="Guide d'achat" />} />
         </Routes>
       </Layout>
-    </Router>
+    </BrowserRouter>
   );
 }
 
