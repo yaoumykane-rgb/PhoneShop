@@ -1,7 +1,28 @@
-import CheckoutForm from "../components/CheckoutForm";
-import OrderSummary from "../components/OrderSummary";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import DeliveryForm from "../components/DeliveryForm";
 
-function Checkout() {
+function Delivery() {
+  const navigate = useNavigate();
+
+  const {
+    checkoutData,
+    setCheckoutData,
+  } = useCart();
+
+  const handleContinue = (deliveryData) => {
+    setCheckoutData({
+      ...checkoutData,
+      delivery: deliveryData,
+    });
+
+    navigate("/order-confirmation");
+  };
+
+  const handleBack = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
 
@@ -9,15 +30,12 @@ function Checkout() {
       <header className="bg-[#080C1C] text-white">
         <div className="mx-auto max-w-7xl px-6 py-5">
 
-          <div className="flex items-center justify-between gap-6">
+          <div className="flex items-center justify-between">
 
-            {/* LOGO */}
-            <div className="flex-shrink-0">
+            <div>
               <h1 className="text-2xl font-extrabold tracking-tight">
                 PhoneShop{" "}
-                <span className="text-indigo-500">
-                  ICI
-                </span>
+                <span className="text-indigo-500">ICI</span>
               </h1>
 
               <p className="text-xs text-gray-400 mt-1">
@@ -25,40 +43,9 @@ function Checkout() {
               </p>
             </div>
 
-
-            {/* RECHERCHE */}
-            <div className="hidden md:block flex-1 max-w-xl">
-
-              <div className="relative">
-
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                  🔍
-                </span>
-
-                <input
-                  type="text"
-                  placeholder="Rechercher un téléphone..."
-                  className="w-full rounded-xl bg-gray-800 border border-gray-700 px-11 py-3 text-sm text-white outline-none focus:border-indigo-500 transition placeholder-gray-400"
-                />
-
-              </div>
-
-            </div>
-
-
-            {/* COMPTE + PANIER */}
-            <div className="flex items-center gap-5 flex-shrink-0">
-
-              <div className="hidden sm:flex items-center gap-2 text-sm">
-                <span className="text-lg">👤</span>
-                <span>Mon compte</span>
-              </div>
-
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-lg">🛒</span>
-                <span>Panier</span>
-              </div>
-
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-lg">🛒</span>
+              <span>Panier</span>
             </div>
 
           </div>
@@ -74,11 +61,11 @@ function Checkout() {
 
           <div className="flex items-center justify-center">
 
-            {/* ÉTAPE 1 */}
+            {/* 1 */}
             <div className="flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-white font-bold shadow-sm">
-                1
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600 font-bold">
+                ✓
               </div>
 
               <div className="hidden sm:block">
@@ -87,20 +74,20 @@ function Checkout() {
                 </p>
 
                 <p className="text-xs text-gray-500">
-                  Vos coordonnées
+                  Terminé
                 </p>
               </div>
 
             </div>
 
 
-            <div className="h-px w-12 sm:w-28 bg-gray-300 mx-4"></div>
+            <div className="h-px w-12 sm:w-28 bg-indigo-300 mx-4"></div>
 
 
-            {/* ÉTAPE 2 */}
-            <div className="flex items-center gap-3 opacity-50">
+            {/* 2 */}
+            <div className="flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-200 text-gray-700 font-bold">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-white font-bold shadow-sm">
                 2
               </div>
 
@@ -110,7 +97,7 @@ function Checkout() {
                 </p>
 
                 <p className="text-xs text-gray-500">
-                  Adresse
+                  Adresse de livraison
                 </p>
               </div>
 
@@ -120,7 +107,7 @@ function Checkout() {
             <div className="hidden sm:block h-px w-12 sm:w-28 bg-gray-300 mx-4"></div>
 
 
-            {/* ÉTAPE 3 */}
+            {/* 3 */}
             <div className="hidden sm:flex items-center gap-3 opacity-50">
 
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-200 text-gray-700 font-bold">
@@ -149,40 +136,31 @@ function Checkout() {
       {/* CONTENU */}
       <main className="mx-auto max-w-7xl px-6 py-10 lg:py-12">
 
-        {/* TITRE */}
         <div className="mb-10">
 
           <p className="text-sm font-semibold text-indigo-600 mb-2">
-            ÉTAPE 1 SUR 3
+            ÉTAPE 2 SUR 3
           </p>
 
           <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900">
-            Finaliser votre commande
+            Adresse de livraison
           </h2>
 
           <p className="mt-3 text-gray-500 max-w-2xl">
-            Renseignez vos informations personnelles pour poursuivre
-            votre commande en toute simplicité.
+            Indiquez l'adresse à laquelle vous souhaitez recevoir
+            votre commande.
           </p>
 
         </div>
 
 
-        {/* FORMULAIRE + COMMANDE */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        {/* FORMULAIRE */}
+        <div className="max-w-4xl">
 
-          {/* FORMULAIRE */}
-          <div className="lg:col-span-2">
-            <CheckoutForm />
-          </div>
-
-
-          {/* RÉSUMÉ */}
-          <div className="lg:col-span-1">
-            <div className="lg:sticky lg:top-6">
-              <OrderSummary />
-            </div>
-          </div>
+          <DeliveryForm
+            onContinue={handleContinue}
+            onBack={handleBack}
+          />
 
         </div>
 
@@ -196,7 +174,6 @@ function Checkout() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            {/* LIVRAISON */}
             <div className="flex items-start gap-4">
 
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-2xl">
@@ -205,18 +182,17 @@ function Checkout() {
 
               <div>
                 <h3 className="font-bold text-gray-900">
-                  Livraison rapide
+                  Livraison à domicile
                 </h3>
 
                 <p className="text-sm text-gray-500 mt-1">
-                  Livraison à domicile à Dakar et environs.
+                  Recevez votre téléphone directement chez vous.
                 </p>
               </div>
 
             </div>
 
 
-            {/* SÉCURITÉ */}
             <div className="flex items-start gap-4">
 
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-2xl">
@@ -225,31 +201,30 @@ function Checkout() {
 
               <div>
                 <h3 className="font-bold text-gray-900">
-                  Paiement sécurisé
+                  Données protégées
                 </h3>
 
                 <p className="text-sm text-gray-500 mt-1">
-                  Vos informations restent protégées.
+                  Vos informations sont traitées en toute sécurité.
                 </p>
               </div>
 
             </div>
 
 
-            {/* SERVICE CLIENT */}
             <div className="flex items-start gap-4">
 
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-2xl">
-                🎧
+                📞
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900">
-                  Service client
+                  Confirmation par téléphone
                 </h3>
 
                 <p className="text-sm text-gray-500 mt-1">
-                  Une équipe disponible pour vous accompagner.
+                  Nous vous contacterons pour confirmer la livraison.
                 </p>
               </div>
 
@@ -265,4 +240,4 @@ function Checkout() {
   );
 }
 
-export default Checkout;
+export default Delivery;
