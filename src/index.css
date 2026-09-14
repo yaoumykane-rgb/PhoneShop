@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
 
 .font-display {
   font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
