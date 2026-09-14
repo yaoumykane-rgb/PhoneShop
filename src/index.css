@@ -1,3 +1,163 @@
+/* ---------------------------------------------------
+   Design tokens
+   --------------------------------------------------- */
+:root {
+  --ink: #101216;
+  --ink-soft: #4a4d55;
+  --muted: #6e7177;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-sunken: #f4f4f6;
+  --border: #e5e6ea;
+  --border-strong: #d4d6dc;
+
+  --accent: #0a66ff;
+  --accent-ink: #0648bf;
+  --accent-tint: #eaf1ff;
+
+  --success: #1b8a5a;
+  --success-tint: #e8f6ef;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 3px rgba(16, 18, 22, 0.06);
+  --shadow-md: 0 16px 32px -16px rgba(16, 18, 22, 0.28);
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------
+   App shell
+   --------------------------------------------------- */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.app-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.app-nav a:hover {
+  color: var(--ink);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+.app-footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.app-footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .app-nav {
+    display: none;
+  }
+}
 
 @import "tailwindcss";
 
@@ -33,8 +193,4 @@ body {
   animation: fade-in 0.35s ease-out;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in {
-    animation: none;
-  }
-}
+
