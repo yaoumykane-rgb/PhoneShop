@@ -1,9 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+
+// Composants placeholder pour les pages non encore créées
+const Placeholder = ({ title }) => (
+  <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+    <h1 className="text-3xl font-bold text-gray-900 mb-4">{title}</h1>
+    <p className="text-gray-600">Cette page est en cours de développement.</p>
+  </div>
+);
 import { Routes, Route, Link } from "react-router-dom";
 import Categories from "./pages/Categories.jsx";
 import CategoryDetail from "./pages/CategoryDetail.jsx";
 
 export default function App() {
   return (
+    <BrowserRouter>
+      <Layout>
     <div className="app-shell">
       <header className="app-header">
         <div className="app-header__inner">
@@ -39,6 +52,10 @@ export default function App() {
 }
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+          {/* Route Guide (ton travail) */}
+          <Route path="/guide" element={<Placeholder title="Guide d'achat" />} />
+        </Routes>
+      </Layout>
 import Checkout from './pages/Checkout';
 import Delivery from './pages/Delivery';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
