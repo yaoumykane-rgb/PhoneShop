@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Routes, Route, Link } from "react-router-dom";
 import Categories from "./pages/Categories.jsx";
 import CategoryDetail from "./pages/CategoryDetail.jsx";
@@ -37,3 +38,4 @@ export default function App() {
     </div>
   );
 }
+=======

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ---------------------------------------------------
    Design tokens
    --------------------------------------------------- */
@@ -158,3 +159,44 @@ main {
     display: none;
   }
 }
+=======
+@import "tailwindcss";
+/* Cacher la scrollbar pour le scroll horizontal */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animation d'apparition au scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    /* Cacher la scrollbar pour le scroll horizontal */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animation d'apparition au scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+>>>>>>> 3c8fbb3a8e96c7f756d66759beb2bc01e5548e10
