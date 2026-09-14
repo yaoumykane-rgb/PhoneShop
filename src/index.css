@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ---------------------------------------------------
    Design tokens
    --------------------------------------------------- */
@@ -159,44 +158,39 @@ main {
     display: none;
   }
 }
-=======
+
 @import "tailwindcss";
-/* Cacher la scrollbar pour le scroll horizontal */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Animation d'apparition au scroll */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-    /* Cacher la scrollbar pour le scroll horizontal */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+.font-display {
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* Animation d'apparition au scroll */
-.reveal {
+@keyframes fade-in {
+  from {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-.reveal.active {
+    transform: translateY(6px);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
+  }
 }
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out;
 }
->>>>>>> 3c8fbb3a8e96c7f756d66759beb2bc01e5548e10
+
+
