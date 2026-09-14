@@ -1,0 +1,214 @@
+.category-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* ---------- Series tile ---------- */
+.category-card--category {
+  flex-direction: column;
+}
+
+.category-card--category:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.category-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+
+.category-card--category .category-card__media {
+  padding: 20px;
+}
+
+.category-card--category .category-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Liseré de couleur reprenant la finition Apple de la génération, au lieu
+   d'un filtre sur la photo — la photo reste nette et fidèle, comme sur les
+   fiches produit. */
+.category-card--category {
+  border-top: 3px solid var(--finish, var(--border));
+}
+
+.category-card__tint {
+  display: none;
+}
+
+.category-card__body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.category-card__title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.category-card--category h3 {
+  font-size: 1.1rem;
+}
+
+.category-card__year {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.category-card--category p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  min-height: 2.6em;
+}
+
+.category-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.category-card__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.category-card__count {
+  margin-left: auto;
+  color: var(--accent-ink);
+  background: var(--accent-tint);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+/* ---------- Phone / model tile ---------- */
+.category-card--phone {
+  flex-direction: column;
+}
+
+.category-card--phone:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+}
+
+.category-card__media--phone {
+  aspect-ratio: 1 / 1;
+  background: var(--surface-sunken);
+  padding: 22px;
+}
+
+.category-card__media--clickable {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: none;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.category-card__media--clickable:hover img {
+  transform: scale(1.03);
+}
+
+.category-card__media--phone img {
+  filter: none;
+  transform: none;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.18s ease;
+}
+
+.category-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+}
+
+.category-card__eyebrow {
+  font-size: 0.76rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.category-card--phone h3 {
+  font-size: 1rem;
+}
+
+.category-card--phone p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.category-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.category-card__price {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+.category-card__rating {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.category-card__cta {
+  margin-top: 14px;
+  width: 100%;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.category-card__cta:hover:not(:disabled) {
+  background: #000;
+}
+
+.category-card__cta:disabled {
+  background: var(--surface-sunken);
+  border-color: var(--border);
+  color: var(--muted);
+  cursor: not-allowed;
+}

@@ -1,0 +1,123 @@
+/* ---------- Hero ---------- */
+
+.categories-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.categories-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0) contrast(1.1) brightness(0.65);
+  z-index: -2;
+}
+
+.categories-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    60% 60% at 50% 35%,
+    rgba(0, 61, 165, 0.35) 0%,
+    rgba(0, 32, 100, 0.92) 100%
+  );
+  z-index: -1;
+}
+
+.categories-hero__content {
+  max-width: 640px;
+  padding: 64px 24px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categories-hero__eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 14px;
+}
+
+.categories-hero__content h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+.categories-hero__content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.02rem;
+  margin: 0 0 32px;
+  max-width: 500px;
+}
+
+.categories-hero__search {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ---------- Body ---------- */
+
+.categories-body {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.categories-browse__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.categories-browse__head h2 {
+  font-size: 1.3rem;
+}
+
+.categories-browse__head span {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.categories-results {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.categories-results__main {
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .categories-results {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .categories-hero {
+    min-height: 460px;
+  }
+
+  .categories-hero__content {
+    padding: 48px 20px;
+  }
+}

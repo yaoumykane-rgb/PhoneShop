@@ -1,21 +1,39 @@
-// components/Sort.jsx
-// Sélecteur de tri (prix / nom)
+import "./Sort.css";
 
-export default function Sort({ sortBy, onSortChange }) {
+export const SORT_OPTIONS = [
+  { value: "relevance", label: "Pertinence" },
+  { value: "price-asc", label: "Prix croissant" },
+  { value: "price-desc", label: "Prix décroissant" },
+  { value: "name-asc", label: "Nom (A → Z)" },
+  { value: "name-desc", label: "Nom (Z → A)" },
+];
+
+/**
+ * Sort — sélecteur de tri.
+ * Props:
+ *  - value: string
+ *  - onChange: (value: string) => void
+ *  - resultCount?: number
+ */
+export default function Sort({ value, onChange, resultCount }) {
   return (
-    <div className="flex flex-col gap-1">
-      <label className="text-xs font-medium text-neutral-500">Trier par</label>
-      <select
-        value={sortBy}
-        onChange={(e) => onSortChange(e.target.value)}
-        className="rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm"
-      >
-        <option value="none">Pertinence</option>
-        <option value="price_asc">Prix croissant</option>
-        <option value="price_desc">Prix décroissant</option>
-        <option value="name_asc">Nom (A → Z)</option>
-        <option value="name_desc">Nom (Z → A)</option>
-      </select>
+    <div className="sort-bar">
+      {typeof resultCount === "number" && (
+        <span className="sort-bar__count">
+          {resultCount} résultat{resultCount > 1 ? "s" : ""}
+        </span>
+      )}
+
+      <label className="sort-bar__select">
+        <span>Trier par</span>
+        <select value={value} onChange={(e) => onChange(e.target.value)}>
+          {SORT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 }
